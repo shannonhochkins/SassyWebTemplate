@@ -1,0 +1,39 @@
+
+// once we've installed node, we'll need to install grub from the node package manager.
+// This will install grunt globally if it doens't exist.
+npm install -g grunt-cli
+// Now that we have installed grunt, we can run it on any existing project build.
+
+// If we don't have a project, we can initialize it with the following which will create the package.json file.
+
+cd /project/path
+npm init
+
+// Now that we've initialized it, we can install grunt into the project so that anyone can just re-run it. 
+
+cd /project/path
+npm install grunt --save-dev
+
+// The above will create directories for node and it's modules.
+
+// Grunt is now going to run, however we still need to create the grunt file. 
+
+// Make a js file called Gruntfile.js inside the root of the project.
+
+// Now we can create/intall dependencies. This should also be included inside the project folder.
+
+// Below are some to use for most projects.
+
+npm install grunt-contrib-compass --save-dev
+npm install grunt-contrib-sass --save-dev
+npm install grunt-contrib-cssmin --save-dev
+npm install grunt-contrib-watch --save-dev
+npm install grunt-contrib-concat --save-dev
+npm install grunt-contrib-uglify --save-dev
+
+
+// NOTE:
+// for this particular package you need ruby & sass installed. 
+yum install rubygems
+// now that ruby is installed
+gem install sass
