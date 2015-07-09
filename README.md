@@ -10,7 +10,8 @@ All dependencies for this project should by inside this directory.
 Running Grunt
 --------------
 
-```cd /project/path
+```
+cd /project/path
 grunt
 ```
 
