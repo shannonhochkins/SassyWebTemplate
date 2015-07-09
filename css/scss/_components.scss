@@ -1,0 +1,98 @@
+@import '../shared/framework';
+
+
+
+/* ==========================================================================
+   Debug
+   ========================================================================== */
+
+button.debug {position:absolute; top:0; right:0;z-index:11;}   
+
+
+/* ==========================================================================
+   Main Content
+   ========================================================================== */
+
+#mainContent {width:100%;clear:both;@include inline-block();}   
+
+/* ==========================================================================
+   Sprites
+   ========================================================================== */
+
+@mixin sprite($x, $y, $w, $h, $alt: false, $includePositions: true, $position: 'center'){
+	$pseudo: if($alt == true, "&:before", "&:after");
+	min-width:$w;
+	min-height:$h;
+	display:block;
+   	#{unquote($pseudo)} {
+   		content:'';
+   		@if $includePositions {
+	   		top:50%;
+		   	margin-top:($h / 2 * -1);
+
+   			@if $position == 'center' {
+		   		left:50%;
+		   		margin-left:($w / 2 * -1);
+		   	}
+		   	@if $position == 'left' {
+		   		left:0;
+		   	}
+		   	@if $position == 'right' {
+		   		right:0;
+		   	}
+	   		width: $w;
+	   		height: $h;
+
+	   	}
+   		background-position:($x * -1) ($y * -1);
+   	}
+}
+
+.sprite {position:relative;
+	&:after,&:before {display:block; background: transparent url($designPath + 'sprite.png');position:absolute;}
+	&.loading {position:relative;min-height:100px; height:100%; width:100%; &:after {content:'';width:32px; height:32px; background: url($designPath + 'site/ajax-loader.gif'); position:absolute; left:50%; top:50%; margin-left:-16px; margin-top:-16px;}}
+}
+
+
+
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+
+
+button, input[type="submit"] {
+	&:active, &.active {}
+}
+
+
+
+/* ==========================================================================
+   Default Form Layout
+   ========================================================================== */
+
+
+label[for] {float:left; clear:left;width:85px;margin:15px 10px 5px 0;
+	+ * {width:278px;float:left;margin:5px 0;}
+	+ .dropdownContainer {width:280px;}
+	+ .autoFlow {width:auto;}
+	&.alt {margin:5px 10px 5px 0;}
+}
+input, textarea {width:100%;padding:13px 0px; text-indent:10px;margin:0;outline:0;
+	&:active, &:focus {}
+}
+textarea {min-height:128px;}
+
+
+
+/* ==========================================================================
+   Checkboxes & Radios
+   ========================================================================== */
+
+input {
+	&[type="checkbox"], &[type="radio"] {
+		+ label {}
+		&:checked + label {}
+		&:disabled + label {cursor:not-allowed;}
+	}
+}
+

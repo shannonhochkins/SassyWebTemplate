@@ -1,0 +1,140 @@
+ @import '../shared/framework';
+
+/* Float Classes */
+.floatRight       {float:right;vertical-align:top;}
+.floatLeft        {float:left;vertical-align:top;}
+.clearLeft        {clear:left;}
+.clearRight       {clear:right;}
+.clearBoth        {clear:both;}
+.clearFix         {@include clearfix();}
+/* Hides from IE-mac \*/
+* html .clearFix  { height: 1%; }
+
+/*Text Classes*/
+.textAlignLeft    {text-align:left;}
+.textAlignRight   {text-align:right;}
+.textAlignCenter  {text-align:center;}
+.textAlignJustify {text-align:justify;}
+.uppercase        {text-transform:uppercase;}
+.capitalize       {text-transform:capitalize;}
+.lowercase        {text-transform:lowercase;}
+.underline        {text-decoration: underline;} 
+.italic 		  {font-style:italic;}
+.bold             {font-weight:700;}
+.light            {font-weight:300;}
+.normal           {font-weight:400;} 
+.blackText, .blackText * {color:black;}
+.whiteText, .whiteText * {color:white;}
+
+
+
+.fullCol, .halfCol, .thirdCol, .quarterCol, .fifthCol, .sixthCol, .twoThirdCol, .threeQuarter {float:left; @include inline-block();}
+.fullCol      {width:100%;}
+.halfCol      {width:50%;}
+.thirdCol     {width:33.3%;}
+.quarterCol   {width:25%;}
+.fifthCol     {width:20%;}
+.sixthCol     {width:16.6%;}
+.twoThirdCol  {width: 66.6%;} 
+.threeQuarter {width:75%;}
+
+.fullCol.padded      {width:90%;   padding:0 5%;} /*Fluid*/
+.halfCol.padded      {width:45%;   padding:0 5% 0 0}
+.thirdCol.padded     {width:30.3%; padding:0 1.5%;} /*Fluid*/
+.quaterCol.padded    {width:23%;   padding:0 1%;} /*Fluid*/
+.fifthCol.padded     {width:18%;   padding:0 1%;} /*Fluid*/
+.sixthCol.padded     {width:14.6%; padding:0 1%;} /*Fluid*/
+.twoThirdCol.padded  {width: 64.6%; padding:0 1%;} 
+.threeQuarter.padded {width:73%; padding:0 1%;}
+
+.fontSize12 {font-size:12px;}
+.fontSize14 {font-size:14px;}
+.fontSize16 {font-size:16px;}
+.fontSize18 {font-size:18px;}
+.fontSize30 {font-size:30px;}
+.fontSize36 {font-size:36px;}
+
+.b1 {background:$brandColour1;}
+.b2 {background:$brandColour2;}
+.b3 {background:$brandColour3;}
+.b4 {background:$brandColour4;}
+.b5 {background:$brandColour5;}
+.b6 {background:$brandColour6;}
+
+.b1Text {color:$brandColour1;}
+.b2Text {color:$brandColour2;}
+.b3Text {color:$brandColour3;}
+.b4Text {color:$brandColour4;}
+.b5Text {color:$brandColour5;}
+.b6Text {color:$brandColour6;} 
+
+.relative {position:relative;}
+.fixed    {position:fixed;}
+.scroll   {position:scroll;}
+.absolute {position:absolute;}
+
+.noBorder {border:0}
+
+.inline-block {@include inline-block();}
+
+$sectionGap:80px;
+.sectionGapBottom {padding-bottom:$sectionGap;}
+.sectionGapTop {padding-top:$sectionGap;}
+.sectionGapBottomHalf {padding-bottom:$sectionGap / 2;}
+.sectionGapTopHalf {padding-top:$sectionGap / 2;}
+
+.disabled, :disabled        {@include opacity(0.2);cursor:not-allowed;}  
+.disableChildren > *  {@extend .disabled;}
+
+ //Set margins for UI elements.
+$marginBase: strip-units($vertical-spacing);
+$verticalBase: strip-units($vertical-spacing);
+.noMargin           {margin:0 !important;}
+.horizontalMargin   {margin-left:$marginBase + px !important; margin-right:$marginBase + px !important;}
+.verticalMargin     {margin-top:$verticalBase + px !important; margin-bottom:$verticalBase + px !important;}
+.bothMargins        {margin:$marginBase + px $marginBase + px !important;}
+.marginTop          {margin-top:($marginBase) + px !important;}
+.marginRight        {margin-right:($marginBase) + px !important;}
+.marginBottom       {margin-bottom:($marginBase) + px !important;}
+.marginLeft         {margin-left:($marginBase) + px !important;}
+.marginTopDouble    {margin-top:($marginBase * 2) + px !important;}
+.marginRightDouble  {margin-right:($marginBase * 2) + px !important;}
+.marginBottomDouble {margin-bottom:($marginBase * 2) + px !important;}
+.marginLeftDouble   {margin-left:($marginBase * 2) + px !important;}
+.noMarginTop        {margin-top:0px !important;}
+.noMarginRight      {margin-right:0px !important;}
+.noMarginBottom     {margin-bottom:0px !important;} 
+.noMarginLeft       {margin-left:0px !important;}
+
+$padding: 30px;
+.noPadding          		{padding:0 !important;}
+.noPaddingTop          		{padding-top:0 !important;}
+.noPaddingBottom       		{padding-bottom:0 !important;}
+.noPaddingLeft       		{padding-left:0 !important;}
+.noPaddingRight       		{padding-right:0 !important;}
+.padding 					{padding:$padding;}
+.paddingHalf 				{padding:$padding / 2;}
+.paddingLeft 				{padding-left:$padding / 2;}
+.paddingRight 				{padding-right:$padding / 2;}
+.paddingTop 				{padding-top:$padding / 2;}
+.paddingBottom 				{padding-bottom:$padding / 2;}
+.paddingLeftDouble 			{padding-left:$padding;}
+.paddingRightDouble 		{padding-right:$padding;}
+.paddingTopDouble 			{padding-top:$padding;}
+.paddingBottomDouble 		{padding-bottom:$padding;}
+
+.hideText			{@include hide-text();}
+.slanted			{@include slanted-highlight(red, span);}
+
+/* Chrome Frame prompt  */
+.chromeFrame {margin: 0.2em 0;background: #ccc;color: #000;padding: 0.2em 0;}
+/* Image replacement */
+.ir {background-color: transparent;border: 0;overflow: hidden;/* IE 6/7 fallback */*text-indent: -9999px;}
+.ir:before {content: "";display: block;width: 0;height: 100%;} 
+/* Hide from both screenreaders and browsers: h5bp.com/u */
+.hidden {display: none !important;}
+/*Hide only visually, but have it available for screenreaders: h5bp.com/v*/
+.visuallyHidden {visibility:hidden !important; display:block !important;}
+/* Hide visually and from screenreaders, but maintain layout*/
+.invisible {visibility: hidden;}
+

@@ -1,0 +1,98 @@
+$brandColour1:#9d0933;
+$brandColour2:#700620;
+$brandColour3:#191919;
+$brandColour4:#191919;
+$brandColour5:#969696;
+$brandColour6:#e6e6e6;
+
+$designPath: '../../_design/';
+$imagePath: '../../_images/';
+$fontPath: '../../fonts/';
+
+/* Body - fonts
+----------------------------------------------- */
+
+$body-font-family:"Arial",serif;
+$body-font-weight: 300;
+$body-font-color: #323232 !default; 
+$body-font-style: normal;
+$body-text-rendering: optimizeLegibility;
+$body-background-color:  white !default;
+
+/* Anchors
+----------------------------------------------- */
+
+$linkColor:                           #323232 !default;
+$linkHoverColor:                      #323232 !default;
+
+/* Global
+----------------------------------------------- */
+
+$vertical-spacing: 25px;		// used for spacing throughout the site
+$radius:3px;					// You can use this variable throughout your site to globalize border-radius size
+$text-direction:ltr;			// Change the direction of text flow
+$min-page-width:0;				// Set a minimum page width so that the browser doesn't squash everything
+
+/* Font Specific Settings
+----------------------------------------------- */ 
+
+$base-font-size:  18px;			// Main font size to use throughout the site
+$line-height: 21px;				// Global line-height
+$font-smoothing: antialiased;   // Font smoothing
+
+
+/* Headers
+----------------------------------------------- */ 
+
+$header-font-family: "Arial",serif;
+$header-font-weight: 400;
+$header-font-style: normal;
+$header-font-color: #323232; 
+$header-line-height: normal;
+$header-top-margin: 0; 
+$header-bottom-margin: 20px; 
+$header-text-rendering: optimizeLegibility; 
+$use-em-header-size: false;
+$use-em-header-line-height: false;
+								
+$h1-font-size:24px;
+$h1-line-height:30px;
+$h2-font-size:18px;
+$h2-line-height:24px;
+$h3-font-size:18px;
+$h3-line-height:24px;
+$h4-font-size:18px;
+$h4-line-height:24px;
+$h5-font-size:14px;
+$h5-line-height:20px;
+$h6-font-size:14px;
+$h6-line-height:20px;
+
+/* Form Settings 
+----------------------------------------------- */
+
+$form-padding:5px;
+$form-border-color:#ddd;
+$form-border-size:1px;
+$form-border-style:solid; 
+
+
+/* Tables
+----------------------------------------------- */
+$table-header-background-color:black; 
+$table-header-text-color:#1abc9c; 
+$table-body-text-color:#fff;
+$table-row-background-color:#222; 
+$table-row-alt-background-color:darken(#222,3%);
+$table-border-color:#111;  
+$table-border-size:1px;
+
+
+/* Button settings
+----------------------------------------------- */
+
+$button-font-size:13px;
+$button-text-color:#fff;  
+
+// Helpful variables
+$i:!important;					// Shortcut for the !important tag

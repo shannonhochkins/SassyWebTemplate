@@ -1,0 +1,12 @@
+@import '../shared/framework';
+
+
+/* ==========================================================================
+   CSS Rules specific to desktop ONLY
+   ========================================================================== */
+
+body, html {max-height:100%; height:100%; width:100%;padding:0; margin:0;}
+
+@include getKeyframes(fadeIn);
+html {@include animate-fadeIn($properties: 0.5s ease-in-out, $class: nested); }
+

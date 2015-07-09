@@ -1,0 +1,14 @@
+@import '../shared/framework';
+
+/* ==========================================================================
+   CSS Rules specific to fluid layouts.
+   ========================================================================== */
+
+@include getKeyframes(fadeIn);
+html {@include animate-fadeIn($properties: 0.5s ease-in-out, $class: nested);}
+
+body.device {
+    
+
+}
+   
