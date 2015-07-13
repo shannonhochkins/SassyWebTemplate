@@ -114,11 +114,18 @@ var _core_extension = {
         return result;
     },
     /**
+        * Function: getScope - Returns the scope of the main app.
+        * Usage: Angular: _core.getScope();
+    */
+    getScope : function() {
+        return angular.element(document).scope();
+    },
+    /**
         * Function: refresh - Will redraw the controller/app with current/updated values from the app.
         * Usage: Angular: _core.refresh();
     */
     refresh: function() {
-        angular.element(document).scope().$apply();
+        _core_extension.getScope().$apply();
     },
     /**
         * Function: Finder - Internal use only, it will search the apps root and child locations for the values/functions you're searching for, this will apply, get set or run depending on the type you pass it.

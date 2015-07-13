@@ -6,7 +6,6 @@ _core.factory('menu', function(){
     },
     onScroll : function(e) {
       var distance = $(window).scrollTop();
-      $rootScope.vars.scrollDistance = distance;
     },
     onResize: function() {
     }
