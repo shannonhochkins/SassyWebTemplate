@@ -60,9 +60,12 @@ button.debug {position:absolute; top:0; right:0;z-index:11;}
    ========================================================================== */
 
 
-button, input[type="submit"] {
+button, input[type="submit"], .button {width:auto;height:auto;background: $brandColour1; @include border-radius(20px); @include background-clip(padding-box); text-decoration: none; text-transform: uppercase;color: white;border: 0;outline: 0;cursor: pointer;padding: 5px 20px;
 	&:active, &.active {}
+	&.alt {background:$brandColour2;text-transform: capitalize;}
+	&.fullCol {padding:5px 0;}
 }
+
 
 
 
@@ -89,10 +92,16 @@ textarea {min-height:128px;}
    ========================================================================== */
 
 input {
-	&[type="checkbox"], &[type="radio"] {
-		+ label {}
-		&:checked + label {}
+	&[type="checkbox"], &[type="radio"] {display:none;
+		+ label {position:relative; padding-left:25px; font-size:12px; line-height:20px;display:block; margin:10px 0; cursor:pointer;
+			&:before {content:''; position:absolute; left:0; top:0; height:18px; width:18px; border:1px solid $brandColour2; display:block;  text-align: center;color: white;font-size: 17px; line-height:18px;}
+			a {font-size:inherit; line-height:inherit; text-decoration: underline; font-weight: inherit;}
+		}
+		&:checked + label {
+			&:before {background:$brandColour1; border-color:$brandColour3;
+				content: '\2713'; 
+			}
+		}
 		&:disabled + label {cursor:not-allowed;}
 	}
 }
-

@@ -1,3 +1,26 @@
+On your server, use wget and paste the link that you copied in order to download the archive file:
+
+wget http://nodejs.org/dist/v0.10.30/node-v0.10.30.tar.gz
+Extract the archive and move into the new directory by typing:
+
+tar xzvf node-v* && cd node-v*
+There are a few packages that we need to download from the CentOS repositories in order to compile the code. Use yum to get these now:
+
+sudo yum install gcc gcc-c++
+Now, we can configure and compile the software:
+
+./configure
+make
+The compilation will take quite awhile. When it is finished, you can install the software onto your system by typing:
+
+sudo make install
+To check that the installation was successful, you can ask Node to display its version number:
+
+node --version
+v0.10.30
+If you see the version number, then the installation was completed successfully.
+
+
 
 // once we've installed node, we'll need to install grub from the node package manager.
 // This will install grunt globally if it doens't exist.

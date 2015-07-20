@@ -10,17 +10,21 @@ _core.factory('backstretch', function(){
     options : {
         disableThumbSize: false,
         disableLargeSize: false,
-        thumbImgSize: ',50,50',
-        largeImageSize: ',1200,665',
+        thumbImgSize: '',
+        largeImageSize: '',
         galleryDelay : 500,
         galleryFadeAnimation : 500,
     },
     onReady: function() {
-      
+        var $this = backstretch;
+        $('.backStretch').each(function() {
+            $this.generateBanner($(this), false);
+        });
     },
     generateBanner: function(source, destination) {
         backstretch.build(source, destination, {
             onLoadCallback: function() {
+                destination = (destination == false ? $(source) : $(destination));
                 destination.removeClass('loading');
             }
         });
@@ -32,35 +36,27 @@ _core.factory('backstretch', function(){
         var galleries = $(galleryImages);
         if (galleries.length == 0) return;
         var options = (typeof(options) == 'object' ? options : {});
+        option = $.extend({}, backstretch.options, options);
         var imageLinks = [];
-        var imageThumbs = [];
         galleries.find('img').each(function() {
-            var thumbSrc = $(this).attr('src');
-            thumbSrc = thumbSrc.split(',')[0] + self.vars.thumbImgSize;
-            imageThumbs.push(thumbSrc);
-            if ($(this).parent().is('a')) {
-                var largeSrc = $(this).parent().attr('href');
-
-                largeSrc = largeSrc.split(',')[0] + self.vars.largeImageSize;
-                imageLinks.push(largeSrc);
-            }
+            var largeSrc = $(this).attr('src');
+            largeSrc = largeSrc.split(',')[0] + self.options.largeImageSize;
+            imageLinks.push(largeSrc);
+            $(this).remove();
         });
-        galleries.remove();
-        var images = {
-            'mainImages': imageLinks,
-            'thumbs': imageThumbs
-        };
+        if (destination != false) galleries.remove();
+        var destination = (destination ==  false ? galleries : destination);
         var banner = $(destination);
         if (imageLinks.length > 0) {
             banner.addClass('hasImages');
             var timout = setTimeout(function() {
                 banner.backstretch(imageLinks, {
-                    duration: self.vars.galleryDelay,
-                    fade: self.vars.galleryFadeAnimation,
+                    duration: self.options.galleryDelay,
+                    fade: self.options.galleryFadeAnimation,
                     onLoadCallback: function() {
                         banner.removeClass('loading').addClass('loaded');
                         if (typeof options.onLoadCallback == 'function') {
-                            options.onLoadCallback.apply(this, [images]);
+                            options.onLoadCallback.apply(this, [imageLinks]);
                         }
                     }
                 });
@@ -72,7 +68,7 @@ _core.factory('backstretch', function(){
         } else {
             banner.hide();
         }
-        return images;
+        return imageLinks;
     }
   }
   // Very important to return backstretch.

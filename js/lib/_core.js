@@ -3,8 +3,6 @@
 // ===================================================================================
 
 var _core = angular.module('_core', []);
-
-
 _core.controller('mainController', ['$rootScope', '$scope', '$log', 'menu', 'lightbox', 'backstretch', 'utils', function($rootScope, $scope, $log, menu, lightbox, backstretch, utils) {
     // Define any injected factories/serivces/providers you wish to be acccesed from this controller.
     // Key : Name of the module to be inserted

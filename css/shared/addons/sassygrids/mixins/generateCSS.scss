@@ -6,7 +6,7 @@
         
   /* Container      
   ----------------------------------------------------------------------------------------------------*/
-  .gridContainer {margin:0 auto; @include container();}   
+  .gridContainer {margin:0 auto; @include container(); @include clearfix();}   
               
                                                       
   /* Grid Static Classes                   

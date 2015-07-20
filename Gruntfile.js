@@ -1,20 +1,6 @@
 module.exports = function(grunt) {
 	grunt.initConfig({
 		pkg : grunt.file.readJSON('package.json'),
-		sass: {
-		    dist: {
-		    	options: {
-		        	style: 'compressed' // [nested, compact, expanded, compressed]
-		        },
-		      	files: [{
-			      	expand : true,
-			      	cwd: 'css/scss',
-			      	src: ['*.scss'],
-			      	dest: 'css/main',
-			      	ext : '.css'
-		      	}]
-		    }
-		},
 		compass: {
 		    dist: {
 		        options: {
@@ -25,10 +11,13 @@ module.exports = function(grunt) {
 		},
 		cssmin: {
 		    main : {
+		    	options: {
+			    	restructuring: false
+			    },
 		    	files: [{
 			    	expand: true,
 			    	cwd: 'css/main',
-			    	src: ['*.css', '!*.min.css'],
+			    	src: ['*main.css', '!*main.min.css'],
 			    	dest: './css/min',
 			    	ext: '.min.css'
 			    }]
@@ -44,7 +33,7 @@ module.exports = function(grunt) {
 			},
 		    scripts: {
 		      files: {
-		        'js/dest/main.min.js': ['js/lib/*.js', 'js/lib/factories/*.js']
+		        'js/dest/main.min.js': ['js/lib/*.js', 'js/lib/factories/*.js', '!*.min.js', '!Gruntfile.js']
 		      }
 		    }
 		},
@@ -53,22 +42,20 @@ module.exports = function(grunt) {
 		},
 		watch : {
 			scripts: {
-			    files: ['**/*.js'],
+			    files: ['js/lib/**/*.js', 'js/lib/*.js'],
 			    tasks: ['uglify']
 		  	},
 		  	scss: {
-			    files: ['**/*.scss'],
+			    files: ['css/scss/*.scss', 'css/scss/**/*.scss', 'css/shared/**/*.scss'],
 			    tasks: ['compass'],
 		  	},
 		  	css: {
-			    files: ['**/*.css'],
-			    tasks: ['cssmin'],
+		    	files: ['css/main/*.css'],
+		    	tasks: ['cssmin'],	
 		  	},
 		}
 	});
-
 	// Currently, sass and jshint aren't running as they're not really that useful.
-	grunt.loadNpmTasks('grunt-contrib-sass');
 	grunt.loadNpmTasks('grunt-contrib-compass');
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
