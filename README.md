@@ -12,6 +12,8 @@ Running Grunt
 
 ```
 cd /project/path
+// npm install make take some time, once completed just run grunt and the service will be up and running.
+npm install
 grunt
 ```
 
