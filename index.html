@@ -1,38 +1,69 @@
 <!DOCTYPE html >
-<!--[if IEMobile 7 ]> <html data-ng-app="_core" dir="ltr" lang="en-US"class="no-js iem7"> <![endif]-->
-<!--[if lt IE 7 ]> <html data-ng-app="_core" dir="ltr" lang="en-US" class="no-js ie ie6 oldie"> <![endif]-->
-<!--[if IE 7 ]>    <html data-ng-app="_core" dir="ltr" lang="en-US" class="no-js ie ie7 oldie"> <![endif]-->
-<!--[if IE 8 ]>    <html data-ng-app="_core" dir="ltr" lang="en-US" class="no-js ie ie8 oldie"> <![endif]-->
-<!--[if IE 9 ]>    <html data-ng-app="_core" dir="ltr" lang="en-US" class="no-js ie ie9 oldie"> <![endif]-->
-<!--[if (gte IE 10)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html data-ng-app="_core" dir="ltr" lang="en-US" class="no-js"><!--<![endif]-->
+<!--[if IEMobile 7 ]> <html data-ng-app="app" dir="ltr" lang="en-US"class="no-js iem7"> <![endif]-->
+<!--[if lt IE 7 ]> <html data-ng-app="app" dir="ltr" lang="en-US" class="no-js ie ie6 oldie"> <![endif]-->
+<!--[if IE 7 ]>    <html data-ng-app="app" dir="ltr" lang="en-US" class="no-js ie ie7 oldie"> <![endif]-->
+<!--[if IE 8 ]>    <html data-ng-app="app" dir="ltr" lang="en-US" class="no-js ie ie8 oldie"> <![endif]-->
+<!--[if IE 9 ]>    <html data-ng-app="app" dir="ltr" lang="en-US" class="no-js ie ie9 oldie"> <![endif]-->
+<!--[if (gte IE 10)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html data-ng-app="app" dir="ltr" lang="en-US" class="no-js"><!--<![endif]-->
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>{{meta_title}}</title>
+        <title>SassyWebTemplate</title>
         <meta name="description" content="{meta_description}">
         <meta name="keywords" content="{meta_keywords}">
         <meta name="author" content="" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="icon" type="image/png" href="favicon.ico">
         <!-- CSS -->
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet"/>
         <link rel="stylesheet" href="css/min/main.min.css">
         <!-- JS -->
-        <script type="text/javascript" src="js/lib/jquery/vendor/modernizr-2.6.2.min.js"></script>
-        <script type="text/javascript" src="js/lib/jquery/vendor/jquery-1.9.1.js"></script> 
+        <script type="text/javascript" src="js/lib/plugins/modernizr-2.6.2.min.js"></script>
+        <script type="text/javascript" src="js/lib/jquery/jquery-1.9.1.js"></script> 
         <script type="text/javascript" src="js/lib/plugins/angular.min.js"></script>
-        <!-- Grunt will automatically compile this file -->
+        <script type="text/javascript" src="js/lib/plugins/angular.animate.min.js"></script>
+        <script type="text/javascript" src="js/lib/plugins/angular.touch.min.js"></script>
+        <script type="text/javascript" src="js/lib/plugins/ui-bootstrap-0.13.1.min.js"></script>
+        <!-- Grunt will automatically compile these file -->
+        <script type="text/javascript" src="js/dest/plugins.min.js"></script>
         <script type="text/javascript" src="js/dest/main.min.js"></script> 
     </head>
-    <body class="" data-ng-controller="mainController">      
+    <body class="ng-cloak" data-ng-controller="mainController" data-ng-init="methods.uncloak()">
         <button class="debug" data-ng-click="methods.debug()">DEBUG</button>  
         <div class="SassyDebugWrapper"><div class="gridContainer"></div></div>
-        <nav></nav>
+        <header class="bs-header text-center" id="overview">
+            <div class="container">
+                <h1>SassyWebTemplate</h1>
+                <p>Relies on <a href="https://github.com/angular-ui/bootstrap">Bootstrap UI</a> & <a href="http://angularjs.org">AngularJS</a>.</p>
+                <p class="small">Full web template, setup using AngularJS, Bootstrap UI and GruntJS.</p>
+                <button type="button" class="btn btn-outline-inverse btn-lg" ng-click="methods.redirect('https://github.com/shannonhochkins/SassyWebTemplate');">
+                    <i class="glyphicon glyphicon-download-alt"></i> View On GitHub
+                </button>
+            </div>
+        </header>
+
         <section id="mainContent">
             <div class="gridContainer" >
                 <div class="grid22 suff1 pref1">
+                    <h1>Installation</h1>
+                    <pre class="textAlignLeft"> cd /project/path
+ npm install
+ grunt</pre>
+ <hr />
+                    <h1 class="marginTop">Dependencies</h1>
+                    <h2 class="underline">AngularJS</h2>
+                    <p>The core of this template is wrapped in an AngularJS App. With a few simple directives included in the lib folder.</p>
+                    <button type="button" class="btn btn-default btn-lg" ng-click="methods.redirect('http://angularjs.org');">See Documentation</button>
+                    <hr />
+                    <h2 class="marginTop underline">Bootstrap UI</h2>
+                    <p>This template is built on Bootstrap/AngularJS UI.</p>
+                    <button type="button" class="btn btn-default btn-lg" ng-click="methods.redirect('http://angular-ui.github.io/bootstrap');">See Documentation</button>
+                    <hr />
+                    <h2 class="marginTop underline">GruntJS & NodeJS</h2>
+                    <p>While grunt isn't necessarily a dependancy, it's definitely something you should learn. The minified JS and CSS is all generated through Grunt, this allows you to edit your project in a development environment, but only push the live minified code.</p>
+                    <button type="button" class="btn btn-default btn-lg" ng-click="methods.redirect('http://gruntjs.com');">See Documentation</button>
+                    <hr />
                 </div>
             </div>
         </section>
-        <footer></footer>
     </body>
 </html>
