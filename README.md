@@ -1,6 +1,6 @@
 SassyWebTemplate
 ===============
-This is a full template setup using Node.js, Grunt, Angular.js, Compass & Sass! Created by [shannon hochkins].
+This is a full template setup using Node.js, Grunt.JS, Angular.js, BootstrapIU, Compass & Sass! Created by [shannon hochkins].
 [shannon hochkins]: http://www.shannonhochkins.com/
 
 Simple to use, if you don't know anything about Grunt, Node, Sass or Angular than this probably isn't the template for you. 
