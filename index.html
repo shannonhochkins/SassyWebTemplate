@@ -49,6 +49,20 @@
  npm install
  grunt</pre>
  <hr />
+                     <h1 class="marginTop">Usage</h1>
+                    <h2 class="underline">SASS/SCSS/CSS</h2>
+                    <p>All files that are css related, are under the css folder. Which has 4 subfolders.</p>
+                    <ol>
+                        <li>css/scss - If you're capable of editing these files, go for it! It's what you should be editing! Once you've started up grunt, once you make changes to any file in the scss or shared folder, it will update the /main folders files with your output.</li>
+                        <li>css/main - Contains all plugins/addons for this template. You shouldn't really have to touch this, more advanced level user edits.</li>
+                        <li>css/min - The minified file is auto-generated from grunt, whenever a file in the scss/css folder is updated, so is this minified file (if grunt is running).</li>
+                        <li>css/shared - Contains all plugins/addons for this template. You shouldn't really have to touch this, more advanced level user edits.</li>
+                    </ol>
+                    <hr />
+                    <h2 class="underline">Angular/JS/Plugins</h2>
+                    <p>Files in the js/dest folder are completely automated from grunt, you shouldn't really edit these files unless you never intend to use grunt.</p>
+                    <p>Any files updated in the js/lib folder are automatically merged into the main.min.js file in /js/dest</p>
+                    <p>Only the angular app is compiled into one singular minified file, all angular folders are also merged, but if something isn't merging you'll need to append it to the uglify array in the gruntfile.js file.</p>
                     <h1 class="marginTop">Dependencies</h1>
                     <h2 class="underline">AngularJS</h2>
                     <p>The core of this template is wrapped in an AngularJS App. With a few simple directives included in the lib folder.</p>
