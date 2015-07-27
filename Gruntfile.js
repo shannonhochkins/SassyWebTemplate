@@ -1,4 +1,10 @@
 module.exports = function(grunt) {
+	// Load NPM tasks
+	require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
+
+	// Enter the name of the file for the dashboard you want to generate
+
+	// Project configuration.
 	grunt.initConfig({
 		pkg : grunt.file.readJSON('package.json'),
 		compass: {
@@ -31,14 +37,13 @@ module.exports = function(grunt) {
 					drop_console: false,
 				}
 			},
+			// This will compile all files in the following folders to one file called 'main.min.js'
 		    scripts: {
 		      files: {
-		        'js/dest/main.min.js': ['js/lib/*.js', 'js/lib/factories/*.js', '!*.min.js', '!Gruntfile.js']
-		      }
+		        'js/dest/main.min.js': ['js/lib/*.js', 'js/lib/routing/*.js', 'js/lib/factories/*.js','js/lib/services/*.js','js/lib/directives/*.js','js/lib/controllers/*.js', '!*.min.js', '!Gruntfile.js'],
+		        'js/dest/plugins.min.js' : ['js/lib/plugins/merge_plugins/*.js', 'js/lib/plugins/merge_plugins/**/*.js']
+		      },
 		    }
-		},
-		jshint: {
-			all: ['js/*.js', 'js/**/*.js']
 		},
 		watch : {
 			scripts: {
@@ -55,12 +60,9 @@ module.exports = function(grunt) {
 		  	},
 		}
 	});
-	// Currently, sass and jshint aren't running as they're not really that useful.
-	grunt.loadNpmTasks('grunt-contrib-compass');
-	grunt.loadNpmTasks('grunt-contrib-cssmin');
-	grunt.loadNpmTasks('grunt-contrib-uglify');
-	grunt.loadNpmTasks('grunt-contrib-jshint');
-	grunt.loadNpmTasks('grunt-contrib-watch');
-	// Setup default task to initialize the watch param
+
+	// Setup default task to initialize the watch function
 	grunt.registerTask('default', ['watch']);
+
+
 }
