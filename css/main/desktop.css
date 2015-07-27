@@ -1,0 +1,181 @@
+/* Body - fonts
+----------------------------------------------- */
+/* Anchors
+----------------------------------------------- */
+/* Global
+----------------------------------------------- */
+/* Font Specific Settings
+----------------------------------------------- */
+/* Headers
+----------------------------------------------- */
+/* Form Settings 
+----------------------------------------------- */
+/* Tables
+----------------------------------------------- */
+/* Button settings
+----------------------------------------------- */
+    /* Settings for SassyGrids 
+----------------------------------------------------------------------------------------------------*/
+/* Import Mixins used by SassyGrids
+----------------------------------------------------------- -----------------------------------------*/
+/* Import Functions used by SassyGrids
+----------------------------------------------------------- -----------------------------------------*/
+/* Error Handling for SASS precomiler
+----------------------------------------------------------- -----------------------------------------*/
+/* ==========================================================================
+   CSS Rules specific to desktop ONLY
+   ========================================================================== */
+/* line 8, ../scss/desktop.scss */
+body, html {
+  max-height: 100%;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-o-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+/* line 11, ../scss/desktop.scss */
+html {
+  -webkit-animation-name: fadeIn;
+  -moz-animation-name: fadeIn;
+  -ms-animation-name: fadeIn;
+  -o-animation-name: fadeIn;
+  animation-name: fadeIn;
+  -webkit-animation-duration: 0.5s;
+  -moz-animation-duration: 0.5s;
+  -ms-animation-duration: 0.5s;
+  -o-animation-duration: 0.5s;
+  animation-duration: 0.5s;
+  -webkit-animation-timing-function: ease-in-out;
+  -moz-animation-timing-function: ease-in-out;
+  -ms-animation-timing-function: ease-in-out;
+  -o-animation-timing-function: ease-in-out;
+  animation-timing-function: ease-in-out;
+}
+
+/* line 14, ../scss/desktop.scss */
+body {
+  filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+  opacity: 1;
+  -moz-transition: opacity 0.4s ease;
+  -o-transition: opacity 0.4s ease;
+  -webkit-transition: opacity 0.4s ease;
+  transition: opacity 0.4s ease;
+}
+
+/* line 16, ../scss/desktop.scss */
+.ng-cloak {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+}
+
+/* line 17, ../scss/desktop.scss */
+section {
+  padding-top: 30px;
+}
+
+/* line 18, ../scss/desktop.scss */
+.btn-outline-inverse {
+  color: #fff;
+  background-color: transparent;
+  border-color: #BBE0D9;
+  margin: 10px;
+}
+
+/* line 19, ../scss/desktop.scss */
+.btn-outline-inverse:hover, .btn-outline-inverse:focus, .btn-outline-inverse:active {
+  color: #BBE0D9;
+  text-shadow: none;
+  background-color: #fff;
+  border-color: #fff;
+}
+
+/* Page headers */
+/* line 22, ../scss/desktop.scss */
+.bs-header {
+  padding: 30px 15px 40px;
+  font-size: 16px;
+  text-align: left;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
+  color: #BBE0D9;
+  background-color: #3D7D76;
+}
+/* line 23, ../scss/desktop.scss */
+.bs-header h1 {
+  color: #fff;
+}
+/* line 24, ../scss/desktop.scss */
+.bs-header a {
+  color: white;
+  font-weight: normal;
+}
+/* line 25, ../scss/desktop.scss */
+.bs-header p {
+  font-weight: 200;
+  line-height: 1.4;
+}
+/* line 26, ../scss/desktop.scss */
+.bs-header p.small {
+  font-size: 70%;
+}
+/* line 27, ../scss/desktop.scss */
+.bs-header .container {
+  position: relative;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1999px) {
+  /* line 31, ../scss/desktop.scss */
+  .btn-outline-inverse {
+    width: auto;
+    margin: 20px 5px 20px 0;
+    padding: 18px 24px;
+    font-size: 21px;
+  }
+
+  /* line 32, ../scss/desktop.scss */
+  .bs-header {
+    font-size: 30px;
+    text-align: left;
+  }
+  /* line 33, ../scss/desktop.scss */
+  .bs-header h1 {
+    font-size: 100px;
+    line-height: 1;
+  }
+  /* line 34, ../scss/desktop.scss */
+  .bs-header p {
+    margin-right: 25%;
+  }
+}

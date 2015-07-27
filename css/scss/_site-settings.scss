@@ -5,14 +5,14 @@ $brandColour4:#191919;
 $brandColour5:#969696;
 $brandColour6:#e6e6e6;
 
-$designPath: '../../_design/site';
+$designPath: '../../_design/';
 $imagePath: '../../_images/';
 $fontPath: '../../fonts/';
 
 /* Body - fonts
 ----------------------------------------------- */
 
-$body-font-family:"Arial",serif;
+$body-font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;;
 $body-font-weight: 300;
 $body-font-color: #323232 !default; 
 $body-font-style: normal;
@@ -44,8 +44,8 @@ $font-smoothing: antialiased;   // Font smoothing
 /* Headers
 ----------------------------------------------- */ 
 
-$header-font-family: "Arial",serif;
-$header-font-weight: 400;
+$header-font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;;
+$header-font-weight: 300;
 $header-font-style: normal;
 $header-font-color: #323232; 
 $header-line-height: normal;

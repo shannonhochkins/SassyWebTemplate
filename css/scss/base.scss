@@ -100,25 +100,12 @@ a {
     color: $linkColor;
     text-decoration: none;
     font-weight:bold;
-    font-size:18px;
     cursor:pointer;
     &:hover {
         color: $linkHoverColor;
     }
 }
 
-/* ==========================================================================
-   Horizontal Rules
-   ========================================================================== */
-
-hr {
-    background-color: transparent;
-    border: solid $brandColour1;
-    border-width: 3px 0 0;
-    clear: both;
-    width:100%;
-    margin: 90px 0;
-}
 
 /* ==========================================================================
    HTML5 display definitions

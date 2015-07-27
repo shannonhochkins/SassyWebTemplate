@@ -1,6 +1,6 @@
 On your server, use wget and paste the link that you copied in order to download the archive file:
 
-wget http://nodejs.org/dist/v0.10.30/node-v0.10.30.tar.gz
+npm init
 Extract the archive and move into the new directory by typing:
 
 tar xzvf node-v* && cd node-v*
@@ -53,6 +53,8 @@ npm install grunt-contrib-cssmin --save-dev
 npm install grunt-contrib-watch --save-dev
 npm install grunt-contrib-concat --save-dev
 npm install grunt-contrib-uglify --save-dev
+npm install grunt-contrib-jshint --save-dev
+npm install matchdep --save
 
 
 // NOTE:
@@ -60,3 +62,5 @@ npm install grunt-contrib-uglify --save-dev
 yum install rubygems
 // now that ruby is installed
 gem install sass
+
+// This project also depends on matchdep, npm install matchdep --save
