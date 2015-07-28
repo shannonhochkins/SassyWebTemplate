@@ -1,5 +1,67 @@
 'use strict';
-var app = angular.module('app', ['ui.bootstrap']);
+var app = angular.module('app', ['ui.bootstrap']).run(['$rootScope', 'menu', 'lightbox', 'backstretch', function($rootScope, menu, lightbox, backstretch) {
+     // Setup some initial options.
+    $rootScope.options = {
+        fluidLayoutSmall: 1008,
+        fluidLayoutLarge: 1300,
+        smallFluidClass: 'fluid',
+        nonFluidClass: 'static',
+        largeFluidClass: 'wide',
+        isSmaller: null,
+        isLarger: null,
+    };
+
+    var modules = {
+        'menu' : menu,
+        'lightbox': lightbox,
+        'backstretch': backstretch,
+    };
+    // Create our default modules object.
+    $rootScope.module = {};
+    // If we're created, injected any factories/serivces/providers. Here we can parse them and inject them into the root level for access globally.
+    for (var module in modules) {
+        var name = module;
+        var injection = {};
+        injection[name] = modules[module];
+        $rootScope.module = angular.merge({}, $rootScope.module, injection);
+    }
+
+    $rootScope.methods = {
+        bindFluidClass :  function() {
+            // Width is 30 margin from left, plus the gridContainer automated width. If sassy grids is updated, this will change the below value.
+            $rootScope.options.isSmaller = (Modernizr.mq('(max-width: '+$rootScope.options.fluidLayoutSmall+'px)') ? true : false);
+            $rootScope.options.isLarger = (Modernizr.mq('(max-width: '+$rootScope.options.fluidLayoutLarge+'px)') ? true : false);
+            var fluidContainers = angular.element('.gridContainer, body, html');
+            fluidContainers.toggleClass($rootScope.options.smallFluidClass, $rootScope.options.isSmaller);
+            fluidContainers.toggleClass($rootScope.options.nonFluidClass, !$rootScope.options.isSmaller);
+            angular.element('body').toggleClass($rootScope.options.largeFluidClass, !$rootScope.options.isLarger);
+        }
+    }
+    // We define these three functions outside the general rootScope, because they're accessed once, and should only be accessed once.
+    $rootScope.onReady = function(e) {
+        $rootScope.methods.bindFluidClass();
+        for(var module in $rootScope['module']) {
+            if (angular.isFunction($rootScope['module'][module].onReady)) {
+                $rootScope['module'][module].onReady.apply(this,[e]);
+            }
+        }
+    };
+    $rootScope.onResize = function(e) {
+        $rootScope.methods.bindFluidClass();
+        for(var module in $rootScope['module']) {
+            if (angular.isFunction($rootScope['module'][module].onResize)) {
+                $rootScope['module'][module].onResize.apply(this,[e]);
+            }
+        }
+    };
+    $rootScope.onScroll = function(e) {
+        for(var module in $rootScope['module']) {
+            if (angular.isFunction($rootScope['module'][module].onScroll)) {
+                $rootScope['module'][module].onScroll.apply(this, [e]);
+            }
+        }
+    };
+}]);
 
 
 // Here's a few simple helpers to allow us to update, set,get & run functions within our app.
